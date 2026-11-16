@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class IncompletoBot : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject player;
+    [SerializeField] private Transform player;
     [SerializeField] private NavMeshAgent agent;
-    private bool hideDone; 
+    [SerializeField] private Drive playerCod;
+    private bool hideDone;
+    private Vector3 c;
 
 
 
@@ -25,10 +27,17 @@ public class IncompletoBot : MonoBehaviour
     }
     [SerializeField] private float rayDistance = 50f;
     [SerializeField] private float angleStep = 20f;
-
+    
     private void Update()
     {
-        currentState = currentState.Process();
+        if (c != null)
+        {
+            //Debug.Log(c);
+            c = playerCod.playerPos;
+        }
+       
+        currentState.SetVelocity(c);
+         currentState = currentState.Process();
     }
    
 
@@ -100,8 +109,9 @@ public class IncompletoBot : MonoBehaviour
         //FindHidePoints();
         currentState.ChangeState(new HideRobber(agent, player, this.gameObject));
         Debug.Log("Hola");
+        hideDone = false;
         //StartCoroutine(CoverBehaviour());
-       // currentState = new HideRobber(agent, player);
+        // currentState = new HideRobber(agent, player);
     }
 
     void CleverHide()

@@ -18,14 +18,19 @@ public class StateRobber
     protected EVENT stage;
     protected StateRobber nextState;
     protected NavMeshAgent agent;
-    protected GameObject target;
+    protected Transform target;
     protected GameObject npc;
+    public Vector3 _velocity;
 
 
 
-    public StateRobber( NavMeshAgent _agent, GameObject _target, GameObject npc)
+
+    public StateRobber( NavMeshAgent _agent, Transform _target, GameObject _npc)
     {
-     
+        target = _target;
+        agent = _agent;
+        npc = _npc;
+        
         stage = EVENT.ENTER;
 
     }
@@ -63,6 +68,11 @@ public class StateRobber
         nextState = newState;
     }
 
+    
+    public void SetVelocity(Vector3 velocity)
+    {
+        _velocity = velocity;
+    }
 
 
 }

@@ -7,9 +7,18 @@
             "id": "5b0a0beb-9805-4edc-8f60-d004e91dad6d",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Hide",
                     "type": "Button",
                     "id": "90c39709-7d74-45e5-b841-347edec7394f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Persue",
+                    "type": "Button",
+                    "id": "d68d5b81-7e9c-451c-b39a-e4ba335e42fc",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -24,7 +33,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Hide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de180bdb-3a68-476a-9d1a-74eceb61c151",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Persue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

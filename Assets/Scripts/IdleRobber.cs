@@ -5,18 +5,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class IdleRobber : StateRobber
 {
+   // StateRobber currentState;
 
-
-    public IdleRobber(NavMeshAgent _agent, GameObject _target, GameObject _npc) : base(_agent, _target, _npc)
+    public IdleRobber(NavMeshAgent _agent, Transform _target, GameObject _npc) : base(_agent, _target, _npc)
     {
-        name = STATE.PURSUE;
+        name = STATE.IDLE;
      
        
     }
-
-
-
-
 
 
 

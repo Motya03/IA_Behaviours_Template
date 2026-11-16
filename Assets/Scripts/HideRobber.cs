@@ -6,12 +6,13 @@ using static UnityEngine.GraphicsBuffer;
 public class HideRobber : StateRobber
 {
     private List<Vector3> hidePoints = new List<Vector3>();
+    
 
-
-    public HideRobber(NavMeshAgent _agent, GameObject _target, GameObject _npc): base(_agent, _target, _npc)
+    
+    public HideRobber(NavMeshAgent _agent, Transform _target, GameObject _npc): base(_agent, _target, _npc)
     {
         name = STATE.HIDE;
-       
+       agent = _agent;
     }
 
 
@@ -21,16 +22,24 @@ public class HideRobber : StateRobber
 
     public override void Enter()
     {
+        
         Debug.Log("22222");
         FindHidePoints();
-        //FindNewCover();
+        
+        
         base.Enter();
     }
 
     public override void Update()
     {
+        Debug.Log("Hiding");
+        if (!agent.pathPending )
+        {
+            Debug.Log("To idle");
+            nextState = new IdleRobber(agent, target, npc);
+            stage = EVENT.EXIT;
+        }
         
-     //  stage = EVENT.EXIT;
     }
 
     public override void Exit()
@@ -42,7 +51,7 @@ public class HideRobber : StateRobber
     {
         hidePoints.Clear();
 
-        Vector3 origin = target.transform.position;
+        Vector3 origin = target.position;
 
         for (float angle = 0; angle < 360; angle += 20f)
         {
@@ -85,6 +94,7 @@ public class HideRobber : StateRobber
             }
         }
         agent.SetDestination(closestPoint);
+        
 
         return closestPoint;
     }

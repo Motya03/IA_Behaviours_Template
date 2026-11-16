@@ -309,7 +309,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1308558798}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
 --- !u!1 &232433729
@@ -570,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135156404443785387, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
       propertyPath: m_Height
-      value: 1.91
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 9135156404443785387, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
       propertyPath: m_BaseOffset
@@ -975,6 +978,37 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 6b57d910d30846e4f81c7423fb6a55fc, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1308558797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308558798}
+  m_Layer: 3
+  m_Name: Orientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308558798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308558797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2003974439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1487302918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 359ce2089411d416980ba3b75f58cdc0, type: 3}
@@ -1026,6 +1060,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 90c39709-7d74-45e5-b841-347edec7394f
     m_ActionName: 'Player/New action[/Keyboard/h]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1519203508}
+        m_TargetAssemblyTypeName: IncompletoBot, Assembly-CSharp
+        m_MethodName: PursueInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d68d5b81-7e9c-451c-b39a-e4ba335e42fc
+    m_ActionName: 'Player/Persue[/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1045,6 +1095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IncompletoBot
   player: {fileID: 2003974439}
   agent: {fileID: 1519203510}
+  playerCod: {fileID: 2003974440}
   rayDistance: 100
   angleStep: 10
 --- !u!195 &1519203510 stripped
@@ -1698,6 +1749,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
   m_PrefabInstance: {fileID: 73510359}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003974440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 727603736, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
+  m_PrefabInstance: {fileID: 73510359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8252f08ac0b234ec99bccd94ec15a342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

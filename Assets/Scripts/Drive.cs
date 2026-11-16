@@ -7,15 +7,19 @@ public class Drive : MonoBehaviour
     public float speed = 10.0f;
     public float rotationSpeed = 100.0f;
     public float currentSpeed = 0;
+    public Vector3 playerPos;
 
     void Update()
     {
+       
         // Get the horizontal and vertical axis.
         // By default they are mapped to the arrow keys.
         // The value is in the range -1 to 1
         float translation = Input.GetAxis("Vertical") * speed;
+        
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
 
+        playerPos = new Vector3(0, rotation, translation);
         // Make it move 10 meters per second instead of 10 meters per frame...
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;
@@ -26,5 +30,6 @@ public class Drive : MonoBehaviour
 
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
+        
     }
 }
