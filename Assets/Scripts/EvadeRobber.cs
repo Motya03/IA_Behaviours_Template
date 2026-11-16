@@ -1,47 +1,40 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public class EvadeRobber : StateRobber
 {
-   
-    
-    private int t = 3;
-    private Vector3 futurePos;
-    private float velocity ;
-    public EvadeRobber(NavMeshAgent _agent, Transform _target, GameObject _npc): base(_agent, _target, _npc)
+    private Vector3 velocity;
+    private Drive targetDrive;
+
+    private float predictionTime = 1f;
+
+    public EvadeRobber(
+        NavMeshAgent _agent,
+        Transform _target,
+        GameObject _npc
+    ) : base(_agent, _target, _npc)
     {
         name = STATE.EVADE;
-       
+
+        targetDrive = _target.GetComponent<Drive>();
     }
-
-
-
-
-
 
     public override void Enter()
     {
-        
         Debug.Log("Evade");
         base.Enter();
     }
 
     public override void Update()
     {
-       
-        //futurePos = target.position + target.velocity * t;
-        //  stage = EVENT.EXIT;
-    }
+        Vector3 futurePos = target.position + velocity * predictionTime;
 
-    public override void Exit()
-    {
-        base.Exit();
+        Vector3 evadeDirection = npc.transform.position - futurePos;
+
+        evadeDirection.Normalize();
+
+        agent.SetDestination(evadeDirection);
     }
 
    
-    
-
-
 }

@@ -32,10 +32,10 @@ public class WanderRobber : StateRobber
     public override void Update()
     {
 
-        wanderTarget += randomVector * jitter;
-        wanderTarget = Normalize(wanderTarget) * radius;
-        Vector3 targetPos = transform.position + transform.forward * distance + wanderTarget;
-        agent.SetDestination(targetPos);
+        //wanderTarget += randomVector * jitter;
+        //wanderTarget = Normalize(wanderTarget) * radius;
+        //Vector3 targetPos = transform.position + transform.forward * distance + wanderTarget;
+       // agent.SetDestination(targetPos);
 
     }
 

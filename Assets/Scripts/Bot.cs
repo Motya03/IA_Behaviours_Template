@@ -11,7 +11,7 @@ public class IncompletoBot : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Drive playerCod;
     private bool hideDone;
-    private Vector3 c;
+   
 
 
 
@@ -30,13 +30,7 @@ public class IncompletoBot : MonoBehaviour
     
     private void Update()
     {
-        if (c != null)
-        {
-            //Debug.Log(c);
-            c = playerCod.playerPos;
-        }
-       
-        currentState.SetVelocity(c);
+        
          currentState = currentState.Process();
     }
    

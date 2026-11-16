@@ -20,7 +20,7 @@ public class StateRobber
     protected NavMeshAgent agent;
     protected Transform target;
     protected GameObject npc;
-    public Vector3 _velocity;
+   
 
 
 
@@ -69,10 +69,7 @@ public class StateRobber
     }
 
     
-    public void SetVelocity(Vector3 velocity)
-    {
-        _velocity = velocity;
-    }
+    
 
 
 }
