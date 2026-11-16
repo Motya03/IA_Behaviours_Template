@@ -2,17 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class IncompletoBot : MonoBehaviour
 {
-    NavMeshAgent agent;
-    public GameObject target; //target sera el cop que lo pondremos en Unity
+    [Header("References")]
+    [SerializeField] private GameObject player;
+    [SerializeField] private NavMeshAgent agent;
+    private bool hideDone; 
+
+
+
+
+    StateRobber currentState;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentState = new IdleRobber(agent, player, this.gameObject);
         agent = this.GetComponent<NavMeshAgent>();
+
     }
+    [SerializeField] private float rayDistance = 50f;
+    [SerializeField] private float angleStep = 20f;
+
+    private void Update()
+    {
+        currentState = currentState.Process();
+    }
+   
+
+    
+    public void HideInput(InputAction.CallbackContext context)
+    {
+        if (hideDone) return;
+        Debug.Log("Hola");
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+
+               
+                hideDone = true;
+                Hide();
+               
+                break;
+        }
+    }
+
+    public void PursueInput(InputAction.CallbackContext context)
+    {
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+
+                Pursue();
+                break;
+        }
+    }
+
+
 
     void Seek(Vector3 location)
     {
@@ -27,7 +75,7 @@ public class IncompletoBot : MonoBehaviour
 
     void Pursue()
     {
-        //TODO
+        currentState.ChangeState(new PursueRobber(agent, player, this.gameObject));
     }
 
     //Evade es practicamente igual a Pursue solo que se debe ir en la direccion contraria
@@ -48,7 +96,12 @@ public class IncompletoBot : MonoBehaviour
 
     void Hide()
     {
-        //TODO
+        
+        //FindHidePoints();
+        currentState.ChangeState(new HideRobber(agent, player, this.gameObject));
+        Debug.Log("Hola");
+        //StartCoroutine(CoverBehaviour());
+       // currentState = new HideRobber(agent, player);
     }
 
     void CleverHide()
@@ -73,8 +126,5 @@ public class IncompletoBot : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
 }
