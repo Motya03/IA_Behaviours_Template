@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4136714572844130062}
   - component: {fileID: 7275219157678838001}
   - component: {fileID: 5330624719964438254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeHole_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7903466264899918563}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4699029730347853335}
   - component: {fileID: 5089501710611431649}
   - component: {fileID: 3670945978223477094}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 749810374689766875}
   - component: {fileID: 8894389860316426201}
   - component: {fileID: 2434462413774300333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ring4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 6936116939144491841}
   - component: {fileID: 1461688457991307924}
   - component: {fileID: 1018537019664475259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ring3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 6666381386059433085}
   - component: {fileID: 1952013775516508947}
   - component: {fileID: 532008097282512054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ring2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 3168791824107759281}
   - component: {fileID: 5921470133957372905}
   - component: {fileID: 2740241100031444359}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pants_Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 6877878370751247879}
   - component: {fileID: 2385611288528824187}
   - component: {fileID: 9163657430697511446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 9001917538466943402}
   - component: {fileID: 1948738921445978760}
   - component: {fileID: 1775690132987084576}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pants_Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 9007863294241230169}
   - component: {fileID: 1773376265598117825}
   - component: {fileID: 3686102184607274192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Brim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 8451433610785327290}
   - component: {fileID: 495606889531547517}
   - component: {fileID: 5079747407672382636}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 8787392313652241645}
   - component: {fileID: 7960250907391343736}
   - component: {fileID: 7085247678799354825}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 2386807803222631717}
   - component: {fileID: 6619200631590883955}
   - component: {fileID: 3608159030416973492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 6794819609391542097}
   - component: {fileID: 1722766185227385468}
   - component: {fileID: 1325184192451027425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1264,7 +1264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741423331900860703}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Specifics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1303,7 +1303,7 @@ GameObject:
   - component: {fileID: 1542520973059188523}
   - component: {fileID: 7236957823438005181}
   - component: {fileID: 2113870232062197283}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ring1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 7590500438878897282}
   - component: {fileID: 3692638436073784596}
   - component: {fileID: 385013861861948141}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,9 +1509,11 @@ GameObject:
   - component: {fileID: 7423567203501390115}
   - component: {fileID: 9135156404443785387}
   - component: {fileID: 3890805500566475164}
-  m_Layer: 0
+  - component: {fileID: 4583857366439307373}
+  - component: {fileID: 1229534586853599025}
+  m_Layer: 3
   m_Name: Robber
-  m_TagString: Untagged
+  m_TagString: Robber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1550,8 +1552,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0
+  m_Height: 1.92
+  m_BaseOffset: 0.83
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &3890805500566475164
@@ -1569,14 +1571,125 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 1.5883228
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.29416138, z: 0}
+--- !u!114 &4583857366439307373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438494788967298231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 215b76edd300659428a84d371f9bfed8, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1229534586853599025}
+        m_TargetAssemblyTypeName: IncompletoBot, Assembly-CSharp
+        m_MethodName: HideInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 90c39709-7d74-45e5-b841-347edec7394f
+    m_ActionName: 'Player/New action[/Keyboard/h]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1229534586853599025}
+        m_TargetAssemblyTypeName: IncompletoBot, Assembly-CSharp
+        m_MethodName: PursueInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d68d5b81-7e9c-451c-b39a-e4ba335e42fc
+    m_ActionName: 'Player/Persue[/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1229534586853599025}
+        m_TargetAssemblyTypeName: IncompletoBot, Assembly-CSharp
+        m_MethodName: EvadeInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 438320e5-992a-4beb-a789-89472a3553b4
+    m_ActionName: 'Player/Evade[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1229534586853599025}
+        m_TargetAssemblyTypeName: IncompletoBot, Assembly-CSharp
+        m_MethodName: WanderInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 25a3d646-005c-43fc-9677-6b91a6d6da24
+    m_ActionName: 'Player/Wander[/Keyboard/w]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1229534586853599025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438494788967298231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a629abcabafc14b649816dc0a9f34cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IncompletoBot
+  player: {fileID: 0}
+  agent: {fileID: 9135156404443785387}
+  playerCod: {fileID: 0}
+  rayDistance: 100
+  angleStep: 10
 --- !u!1 &7654464796460211274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4789449964865049033}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BaseCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1625,7 +1738,7 @@ GameObject:
   - component: {fileID: 4435425970095821858}
   - component: {fileID: 3099900484223740048}
   - component: {fileID: 4321181439716952348}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Buckle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1737,7 +1850,7 @@ GameObject:
   - component: {fileID: 9178061901137213590}
   - component: {fileID: 5631149895406682396}
   - component: {fileID: 3448808435552906586}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeHole_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

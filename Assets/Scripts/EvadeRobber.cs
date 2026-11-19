@@ -6,7 +6,16 @@ public class EvadeRobber : StateRobber
     private Vector3 velocity;
     private Drive targetDrive;
 
+
+
+    private float minPredictionTime = 0.2f;
+    private float maxPredictionTime = 1f;
+
+    private float minDistance = 2f;
+    private float maxDistance = 10f;
+
     private float predictionTime = 1f;
+    private float evadeDistance = 10f;
 
     public EvadeRobber(
         NavMeshAgent _agent,
@@ -27,14 +36,48 @@ public class EvadeRobber : StateRobber
 
     public override void Update()
     {
+        if (complexOn)
+        {
+            bool isClose = IsTargetInRange();
+            if (!isClose)
+            {
+                nextState = new HideRobber(agent, target, npc);
+                stage = EVENT.EXIT;
+            }
+        }
+            CalculatePredictionTime();
+        // Get player velocity
+        velocity = targetDrive.velocity;
+
+        // Predict future player position
         Vector3 futurePos = target.position + velocity * predictionTime;
 
+        // Calculate opposite direction
         Vector3 evadeDirection = npc.transform.position - futurePos;
 
         evadeDirection.Normalize();
 
-        agent.SetDestination(evadeDirection);
+        // Calculate destination
+        Vector3 evadeDestination =
+            npc.transform.position + evadeDirection * evadeDistance;
+
+        // Move enemy
+        agent.SetDestination(evadeDestination);
     }
 
-   
+    private void CalculatePredictionTime()
+    {
+        float distance = Vector3.Distance(
+            target.position,
+            npc.transform.position
+        );
+
+        float t = Mathf.InverseLerp(minDistance, maxDistance, distance);
+
+        predictionTime = Mathf.Lerp(
+            minPredictionTime,
+            maxPredictionTime,
+            t
+        );
+    }
 }

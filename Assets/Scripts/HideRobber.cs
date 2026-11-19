@@ -6,13 +6,15 @@ using static UnityEngine.GraphicsBuffer;
 public class HideRobber : StateRobber
 {
     private List<Vector3> hidePoints = new List<Vector3>();
-    
+    private Vector3 startPosition;
+    private bool hasMoved;
 
-    
+
     public HideRobber(NavMeshAgent _agent, Transform _target, GameObject _npc): base(_agent, _target, _npc)
     {
         name = STATE.HIDE;
        agent = _agent;
+        startPosition = agent.transform.position;
     }
 
 
@@ -32,14 +34,40 @@ public class HideRobber : StateRobber
 
     public override void Update()
     {
-        Debug.Log("Hiding");
-        if (!agent.pathPending )
+        if (complexOn)
         {
-            Debug.Log("To idle");
-            nextState = new IdleRobber(agent, target, npc);
-            stage = EVENT.EXIT;
+         
+            float distanceFromStart = Vector3.Distance(
+                agent.transform.position,
+                startPosition
+            );
+
+            // Primero esperamos a que se aleje del origen.
+            if (!hasMoved && distanceFromStart > 2f)
+            {
+                hasMoved = true;
+            }
+
+            // Una vez se ha movido, comprobamos si ha llegado.
+            if (hasMoved &&
+                !agent.pathPending &&
+                agent.remainingDistance <= agent.stoppingDistance)
+            {
+               
+                if (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f  )
+                {
+                    bool canSeeMee = CanTargetSeeMe();
+                    if (canSeeMee)
+                    {
+                        Debug.Log("To idle");
+                        nextState = new IdleRobber(agent, target, npc);
+                        stage = EVENT.EXIT;
+                    }
+                    
+                }
+            }
         }
-        
+
     }
 
     public override void Exit()

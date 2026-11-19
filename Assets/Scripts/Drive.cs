@@ -7,6 +7,7 @@ public class Drive : MonoBehaviour
 
     public Vector3 velocity;
     private Vector3 previousPosition;
+    public float rotation;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class Drive : MonoBehaviour
     void Update()
     {
         float translation = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+         rotation = Input.GetAxis("Horizontal") * rotationSpeed;
 
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;

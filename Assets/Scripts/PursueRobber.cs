@@ -6,6 +6,12 @@ public class PursueRobber : StateRobber
     private Vector3 velocity;
     private Drive targetDrive;
 
+     private float minPredictionTime = 0.2f;
+     private float maxPredictionTime = 1f;
+
+     private float minDistance = 2f;
+     private float maxDistance = 10f;
+ 
     private float predictionTime = 1f;
 
     public PursueRobber(
@@ -27,10 +33,22 @@ public class PursueRobber : StateRobber
 
     public override void Update()
     {
-        CheckVelocity();
+        if (complexOn)
+        {
+            bool canSeeMee = CanTargetSeeMe();
+            bool canISee = CanSeeTarget();
+            bool isClose = IsTargetInRange();
+            if (canSeeMee)
+            {
+                nextState = new EvadeRobber(agent, target, npc);
+                stage = EVENT.EXIT;
+            }
 
-        Vector3 futurePos =
-            -target.position + velocity * predictionTime;
+        }
+        CheckVelocity();
+        CalculatePredictionTime();
+
+        Vector3 futurePos = target.position + velocity * predictionTime;
 
         agent.SetDestination(futurePos);
     }
@@ -38,5 +56,21 @@ public class PursueRobber : StateRobber
     private void CheckVelocity()
     {
         velocity = targetDrive.velocity;
+    }
+
+    private void CalculatePredictionTime()
+    {
+        float distance = Vector3.Distance(
+            target.position,
+            npc.transform.position
+        );
+
+        float t = Mathf.InverseLerp(minDistance, maxDistance, distance);
+
+        predictionTime = Mathf.Lerp(
+            minPredictionTime,
+            maxPredictionTime,
+            t
+        );
     }
 }

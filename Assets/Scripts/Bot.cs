@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -11,8 +12,8 @@ public class IncompletoBot : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Drive playerCod;
     private bool hideDone;
-   
 
+    public bool complexOn;
 
 
 
@@ -32,6 +33,9 @@ public class IncompletoBot : MonoBehaviour
     {
         
          currentState = currentState.Process();
+      
+
+
     }
    
 
@@ -63,18 +67,65 @@ public class IncompletoBot : MonoBehaviour
         }
     }
 
+    public void EvadeInput(InputAction.CallbackContext context)
+    {
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+
+                Evade();
+                break;
+        }
+    }
+    public void WanderInput(InputAction.CallbackContext context)
+    {
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+
+                Wander();
+                break;
+        }
+    }
+
+    public void ComplexInput(InputAction.CallbackContext context)
+    {
+        
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+
+                if (complexOn)
+                {
+                    complexOn = false;
+                    CleverHide(false);
+                    break;
+                }
+                else
+                {
+                    complexOn = true;
+                    CleverHide(true);
+                    break;
+                }
+               // break;
+              
+        }
+    }
 
 
-    void Seek(Vector3 location)
-    {
-        //TODO
-    }
-    //En seek ponemos como destino la posicion del target, en Flee (huir) ponemos como
-    //destino la posicion del target en negativo para que vaya huyendo de esa posicion
-    void Flee(Vector3 location)
-    {
-       //TODO
-    }
+
+
+
+    //void Seek(Vector3 location)
+    //{
+    //    //TODO
+    //}
+    ////En seek ponemos como destino la posicion del target, en Flee (huir) ponemos como
+    ////destino la posicion del target en negativo para que vaya huyendo de esa posicion
+    //void Flee(Vector3 location)
+    //{
+    //   //TODO
+    //}
 
     void Pursue()
     {
@@ -84,17 +135,17 @@ public class IncompletoBot : MonoBehaviour
     //Evade es practicamente igual a Pursue solo que se debe ir en la direccion contraria
     void Evade()
     {
-        //TODO
+        currentState.ChangeState(new EvadeRobber(agent, player, this.gameObject));
     }
 
 
 	//Para Wander necesitamos una var. que recordemos en cada llamada y por lo
 	//tanto no puede ser local al metodo.
-    Vector3 wanderTarget = Vector3.zero; //Se actualiza cada vez que el agente
+    //Vector3 wanderTarget = Vector3.zero; //Se actualiza cada vez que el agente
 										 //tiene un nuevo valor en su posicion
     void Wander()
     {
-        //TODO
+        currentState.ChangeState(new WanderRobber(agent, player, this.gameObject));
     }
 
     void Hide()
@@ -108,10 +159,13 @@ public class IncompletoBot : MonoBehaviour
         // currentState = new HideRobber(agent, player);
     }
 
-    void CleverHide()
+    void CleverHide(bool on)
     {
-        //TODO
+        currentState.ChangeState(new IdleRobber(agent, player, this.gameObject));
+
+        currentState.ComplexBehaviour(on);
     }
+   
 
 
     bool CanSeeTarget()

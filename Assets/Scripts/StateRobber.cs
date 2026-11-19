@@ -20,6 +20,7 @@ public class StateRobber
     protected NavMeshAgent agent;
     protected Transform target;
     protected GameObject npc;
+    protected static bool complexOn;
    
 
 
@@ -68,8 +69,82 @@ public class StateRobber
         nextState = newState;
     }
 
-    
-    
+
+    public void ComplexBehaviour(bool complex)
+    {
+        complexOn = complex;
+    }
+
+
+
+    public bool CanSeeTarget()
+    {
+        Vector3 forward = npc.transform.forward;
+        Vector3 origin = npc.transform.position;
+
+        for (float angle = 0; angle < 60; angle += 10f)
+        {
+            Vector3 direction =
+                Quaternion.Euler(0, angle, 0) * forward;
+
+            Debug.DrawRay(origin, direction * 10f, Color.red);
+
+            if (Physics.Raycast(origin, direction, out RaycastHit hit, 10f))
+            {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    
+                    Debug.DrawLine(origin, hit.point, Color.green);
+                    
+                   // Debug.Log("CanSeeTarget");
+                    return true;
+   
+                }
+            }
+        }
+        return false;
+    }
+    public bool CanTargetSeeMe()
+    {
+        Vector3 origin = target.position;
+        Vector3 forward = target.forward;
+        for (float angle = 0; angle < 60; angle += 10f)
+        {
+            Vector3 direction =
+                Quaternion.Euler(0, angle, 0) * forward;
+            Debug.DrawRay(origin, direction * 10f, Color.red);
+
+
+            if (Physics.Raycast(origin, direction, out RaycastHit hit, 10f))
+            {
+                if (hit.collider.CompareTag("Robber"))
+                {
+                  
+                    Debug.DrawLine(origin, hit.point, Color.green);
+                   // Debug.DrawRay(point, Vector3.up, Color.blue);
+                    return true;
+
+                }
+            }
+        }
+        return false;
+    }
+    public bool IsTargetInRange()
+    {
+
+        float distance = Vector3.Distance(
+           target.position,
+           npc.transform.position
+       );
+        if (distance < 10)
+        {
+           // Debug.Log("InRange");
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 }
